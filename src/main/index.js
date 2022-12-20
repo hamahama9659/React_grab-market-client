@@ -3,14 +3,19 @@ import axios from "axios";
 import React from "react";
 import StudyingComponent from "./studying.js";
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { API_URL } from "../config/constants.js";
+import { Carousel } from "antd";
+dayjs.extend(relativeTime);
 
 function MainPage() {
   const [products, setProducts] = React.useState([]);
+  const [banners, setBanners] = React.useState([]);
+
   React.useEffect(function () {
     axios
-      .get(
-        "https://84ab0a77-17fd-420e-b91f-686f4821540b.mock.pstmn.io/products"
-      )
+      .get(`${API_URL}/products`)
       .then(function (result) {
         const products = result.data.products;
         console.log(result);
@@ -19,35 +24,68 @@ function MainPage() {
       .catch(function (error) {
         console.error("에러 발생 : ", error);
       });
+
+    axios
+      .get(`${API_URL}/banners`)
+      .then(function (result) {
+        const banners = result.data.banners;
+        setBanners(banners);
+      })
+      .catch(error => {
+        console.error("에러 발생 :: ", error);
+      });
   }, []);
+
   return (
     <div>
-      <div id="banner">
-        <img src="images/banners/banner1.png" />
-      </div>
+      <Carousel autoplay autoplaySpeed={3000}>
+        {banners.map((banner, index) => {
+          return (
+            <div id="banner">
+              <Link to={banner.href}>
+                <img src={`${API_URL}/${banner.imageUrl}`} />
+              </Link>
+            </div>
+          );
+        })}
+      </Carousel>
+
       <StudyingComponent />
       {
-        //오오오오오 신기하다 된다!!!!!!!!!!!
+        //<h1 id="product-headline">판매되는 상품들</h1>
       }
 
       <div id="product-list">
         {products.map(function (product, index) {
           return (
             <div className="product-card">
-              <Link className="product-link" to={`/products/${product.id}`}>
+              {product.soldout === 1 && <div className="product-blur" />}
+              <Link
+                style={{ color: "inherit" }}
+                className="product-link"
+                to={`/products/${product.id}`}
+              >
                 <div>
-                  <img className="product-img" src={product.imageUrl} />
+                  <img
+                    className="product-img"
+                    src={`${API_URL}/${product.imageUrl}`}
+                  />
                 </div>
                 <div className="product-contents">
                   <span className="product-name">{product.name}</span>
                   <span className="product-price">{product.price}원</span>
-                  <span className="product-seller">
-                    <img
-                      className="product-avatar"
-                      src="images/icons/avatar.png"
-                    />
-                    <span>{product.seller}</span>
-                  </span>
+                  <div className="product-footer">
+                    <div className="product-seller">
+                      <img
+                        className="product-avatar"
+                        src="images/icons/avatar.png"
+                      />
+                      <span>{product.seller}</span>
+                    </div>
+                    <span className="product-date">
+                      {dayjs(product.createdAt).fromNow()}
+                    </span>
+                  </div>
                 </div>
               </Link>
             </div>

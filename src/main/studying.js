@@ -11,7 +11,9 @@ function Studying() {
 
   return (
     <div>
-      <h1 style={{ color }}>판매되는 상품들</h1>
+      <h1 style={{ color }} id="product-headline">
+        판매되는 상품들
+      </h1>
       <span style={{ color }}>{cname}</span>
       <br />
       <button
