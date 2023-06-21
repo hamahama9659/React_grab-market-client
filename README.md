@@ -18,27 +18,27 @@
     (1) 큐와 스택 
       : 스텍은 선입후출의 데이터 구조이며, 큐는 선입선출 형식의 데이터 구조이다.
     
-       ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/015bc5f3-4b25-4848-8957-011147953694)
+  ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/015bc5f3-4b25-4848-8957-011147953694)
 
     (2) 호이스팅 (hoisting)
       : 호이스팅이란 코드 실행시 가장 먼저 작동되는 단계로, 
         변수/ 함수 선언문이 해당 '스코프'의 최상단으로 끌어올려져 먼저 실행되는 현상이다.
 
         ex)
-        ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/04ac146a-dcca-4c1a-a4cd-02b0eb0ca83e)
+  ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/04ac146a-dcca-4c1a-a4cd-02b0eb0ca83e)
 
 
     (3) 함수 선언문과 표현식
       :  
 
-      ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/95ca24fc-62aa-4d2c-98f7-3675b78754fb)
+  ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/95ca24fc-62aa-4d2c-98f7-3675b78754fb)
     ** 주의사항 : 함수 표현식을 지향하자. (함수 선언문은 할당 부분까지 호이스팅 되어 중복 선언시 override가 발생할 수 있다.) **
 
     (4) 실행 컨텍스트, 스코프 체인
       : 컨텍스트란 지역변수와 전역변수가 존재하는 지역공간과 전역공간을 일컫는 말이다.
         스코프 체인은 스텍의 가장 상단의 컨텍스트에서 호출 된 변수를 경로 상 가장 가까운 컨텍스트의 변수를 호출하는 것을 일컫는다.
         
-      ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/f23dc747-0b31-42a3-93b2-9ffbab511c4f)
+  ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/f23dc747-0b31-42a3-93b2-9ffbab511c4f)
 
     
   3-2. React
@@ -69,7 +69,7 @@
     : 해당 프로젝트는 내 깃헙 레포지토리에 'React_grab-market-server ' 올려두었다.
       웹 에플리케이션 서버에서 db는 sqllite를 사용하였고, 파일 업로드를 위해 Node.js의 Multer라는 미들웨어를 활용했다.
 
-     ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/d2df419c-8b62-4bc7-82df-c9d630d1900e)
+  ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/d2df419c-8b62-4bc7-82df-c9d630d1900e)
 
       또한 single 메소드와 array로 메소드로 단일/다중 파일 업로드를 둘 다 구현했다.
 
@@ -77,7 +77,7 @@
     : React-Navigation의 Stack, navigationContainer 컴포넌트로 stack 구조의 화면 전환을 구성했고, 
       react-native로 모바일 환경의 자연스러운 스크롤과 터치를 위한 페이지를 구성했다.
 
-    ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/beeb887d-c94b-49c6-9000-cc333c4584dd)
+![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/beeb887d-c94b-49c6-9000-cc333c4584dd)
 ![image](https://github.com/hamahama9659/React_grab-market-client/assets/116577341/2b3dadc6-afda-47c0-b122-a9361c4fdbd7)
 
 
